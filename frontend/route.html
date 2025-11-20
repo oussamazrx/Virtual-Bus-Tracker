@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Route - CMC Bus Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="bus-emoji">🚌</span>
+                <span>CMC Bus Tracker</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Map</a>
+                <a href="route.html" class="nav-link active">Route</a>
+                <a href="about.html" class="nav-link">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Bus Route Information</h1>
+            <p class="page-subtitle">Complete route with all stops and schedules</p>
+        </div>
+
+        <div class="route-content">
+            <div class="card">
+                <h2 class="card-title" id="route-name">Loading route...</h2>
+                <div id="route-stops" class="route-stops-list">
+                    <div class="loading">Loading stops...</div>
+                </div>
+            </div>
+
+            <div class="route-info-grid">
+                <div class="info-card">
+                    <div class="info-icon">📍</div>
+                    <div class="info-content">
+                        <div class="info-value" id="total-stops">-</div>
+                        <div class="info-label">Total Stops</div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">⏱️</div>
+                    <div class="info-content">
+                        <div class="info-value" id="total-time">~45 min</div>
+                        <div class="info-label">Total Journey</div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">🔄</div>
+                    <div class="info-content">
+                        <div class="info-value">Every 30min</div>
+                        <div class="info-label">Frequency</div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">🕐</div>
+                    <div class="info-content">
+                        <div class="info-value">7:00 - 22:00</div>
+                        <div class="info-label">Operating Hours</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:8000';
+
+        async function loadRoute() {
+            try {
+                const response = await fetch(`${API_URL}/api/route`);
+                const data = await response.json();
+
+                document.getElementById('route-name').textContent = data.route_name;
+                document.getElementById('total-stops').textContent = data.total_stops;
+
+                const stopsContainer = document.getElementById('route-stops');
+                stopsContainer.innerHTML = '';
+
+                data.stops.forEach((stop, index) => {
+                    const stopElement = document.createElement('div');
+                    stopElement.className = 'route-stop-item';
+                    stopElement.innerHTML = `
+                        <div class="stop-number">${index + 1}</div>
+                        <div class="stop-info">
+                            <div class="stop-name">${stop.name}</div>
+                            <div class="stop-coords">
+                                ${stop.lat.toFixed(4)}, ${stop.lon.toFixed(4)}
+                            </div>
+                            <div class="stop-wait">Wait time: ${Math.floor(stop.wait_time / 60)} min</div>
+                        </div>
+                    `;
+                    stopsContainer.appendChild(stopElement);
+                });
+
+            } catch (error) {
+                console.error('Error loading route:', error);
+                document.getElementById('route-stops').innerHTML = 
+                    '<div class="error">Failed to load route data</div>';
+            }
+        }
+
+        loadRoute();
+    </script>
+</body>
+</html>

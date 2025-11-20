@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMC Bus Tracker - Real-time Bus Location</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="bus-emoji">🚌</span>
+                <span>CMC Bus Tracker</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">Map</a>
+                <a href="route.html" class="nav-link">Route</a>
+                <a href="about.html" class="nav-link">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="status-bar">
+            <div class="status-item">
+                <span class="status-label">Status:</span>
+                <span id="bus-status" class="status-value">Loading...</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Nearest Stop:</span>
+                <span id="nearest-stop" class="status-value">-</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Speed:</span>
+                <span id="bus-speed" class="status-value">- km/h</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Last Update:</span>
+                <span id="last-update" class="status-value">-</span>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="map-container">
+                <div id="map"></div>
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <span class="legend-icon bus">🚌</span>
+                        <span>Bus Position</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-icon stop">📍</span>
+                        <span>Bus Stops</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="card">
+                    <h2 class="card-title">Next Arrivals</h2>
+                    <div id="eta-list" class="eta-list">
+                        <div class="loading">Loading ETA data...</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title">Notifications</h2>
+                    <p class="card-description">Get notified when the bus is near your stop</p>
+                    
+                    <div class="notification-setup">
+                        <label for="stop-select" class="input-label">Select your stop:</label>
+                        <select id="stop-select" class="select-input">
+                            <option value="">Choose a stop...</option>
+                        </select>
+                        
+                        <label for="time-select" class="input-label">Notify me:</label>
+                        <select id="time-select" class="select-input">
+                            <option value="5">5 minutes before</option>
+                            <option value="10">10 minutes before</option>
+                            <option value="15">15 minutes before</option>
+                        </select>
+                        
+                        <button id="enable-notifications" class="btn btn-primary">
+                            Enable Notifications
+                        </button>
+                        
+                        <div id="notification-status" class="notification-status"></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title">Active Buses</h2>
+                    <p class="card-description">Filter buses by origin/destination stops</p>
+                    <label for="from-select" class="input-label">From:</label>
+                    <select id="from-select" class="select-input">
+                        <option value="">Any</option>
+                    </select>
+                    <label for="to-select" class="input-label">To:</label>
+                    <select id="to-select" class="select-input">
+                        <option value="">Any</option>
+                    </select>
+                    <div style="display:flex; gap:8px; margin-top:8px;">
+                        <button id="filter-buses" class="btn">Filter</button>
+                        <button id="show-all-buses" class="btn">Show All</button>
+                    </div>
+                    <div id="vehicle-list" style="margin-top:8px; max-height:200px; overflow:auto;"></div>
+                </div>
+
+                <div class="card connection-status">
+                    <div class="connection-indicator">
+                        <span id="connection-dot" class="dot"></span>
+                        <span id="connection-text">Connecting...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="position: fixed; bottom: 20px; left: 20px; z-index: 1000;">
+        <button id="locate-me" class="btn btn-primary">Locate Me</button>
+        <div id="nearest-info" style="margin-top:8px; background:#fff; padding:8px; border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,.2);">
+            <div id="nearest-text">Not located</div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
