@@ -81,7 +81,8 @@ body {
 
 .nav-link.active {
     color: var(--primary-color);
-    background: #eff6ff;
+    background: #eaf2ff;
+    box-shadow: 0 4px 18px rgba(37,99,235,0.06);
 }
 
 /* Container */
@@ -576,4 +577,185 @@ body {
     .route-info-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Landing / Hero */
+.hero {
+    background: linear-gradient(90deg, rgba(37,99,235,0.06), rgba(99,102,241,0.03));
+    padding: 4rem 2rem;
+    border-radius: 0.75rem;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 2rem;
+    align-items: center;
+}
+
+.hero-card {
+    background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 10px 30px rgba(20, 40, 80, 0.06);
+    border: 1px solid rgba(32,52,73,0.04);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.05;
+    margin-bottom: 1rem;
+}
+
+.hero p.lead {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.feature-item {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem 2rem;
+    margin-top: 1.5rem;
+    justify-items: center;
+    align-items: start;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pricing-card {
+    background: linear-gradient(180deg, #ffffff, #fbfdff);
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(15, 23, 42, 0.04);
+    width: 100%;
+    max-width: 360px;
+    min-height: 320px;
+}
+
+.pricing-card .pricing-head {
+    padding: 1.1rem 1.25rem;
+    background: linear-gradient(90deg, rgba(37,99,235,0.06), rgba(99,102,241,0.03));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pricing-card .pricing-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1 1 auto;
+}
+
+.pricing-card .price {
+    font-size: 2.1rem;
+    font-weight: 900;
+    color: var(--text-primary);
+}
+
+.pricing-card .price-sub {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.pricing-features li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    color: var(--text-secondary);
+}
+
+.pricing-features li:before {
+    content: '✓';
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+    background: rgba(16,185,129,0.12);
+    color: var(--success-color);
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+.pricing-cta {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid rgba(15,23,42,0.04);
+    display:flex;
+    justify-content:center;
+}
+
+.pricing-cta .btn-primary {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+}
+
+.pricing-card.popular {
+    transform: translateY(-6px);
+    border: 1px solid rgba(37,99,235,0.12);
+}
+
+.ribbon {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    background: linear-gradient(90deg,#ff6b6b,#ff8a5c);
+    color: white;
+    padding: 0.35rem 0.7rem;
+    font-weight: 800;
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.faq-item { margin-bottom: 1rem; }
+
+@media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; }
 }

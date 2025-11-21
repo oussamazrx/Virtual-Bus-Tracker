@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMC Bus Tracker — Smart Campus Transit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="bus-emoji">🚌</span>
+                <span>CMC Bus Tracker</span>
+            </div>
+            <div class="nav-links">
+                <a href="landing.html" class="nav-link active">Home</a>
+                <a href="index.html" class="nav-link">Live Map</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="route.html" class="nav-link">Route</a>
+                <a href="about.html" class="nav-link">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <div>
+                <h1>Smart, reliable campus transit — in real time</h1>
+                <p class="lead">CMC Bus Tracker brings live bus locations, accurate ETAs, and customizable alerts to students and staff. Reduce waiting time, plan your commute, and get notified when your bus is near.</p>
+
+                <div class="hero-cta">
+                    <a class="btn btn-primary" href="index.html">Try the Live Demo</a>
+                    <a class="btn" href="pricing.html">View Pricing</a>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div style="font-size:22px">📶</div>
+                        <div>
+                            <strong>Real-time Tracking</strong>
+                            <div style="color:var(--text-secondary); font-size:0.95rem">Live vehicle positions and ETAs</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div style="font-size:22px">🔔</div>
+                        <div>
+                            <strong>Notifications</strong>
+                            <div style="color:var(--text-secondary); font-size:0.95rem">Get alerts for your stop</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div style="font-size:22px">🗺️</div>
+                        <div>
+                            <strong>Road-accurate Routes</strong>
+                            <div style="color:var(--text-secondary); font-size:0.95rem">Free routing via OSRM or Google (optional)</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div style="font-size:22px">🔐</div>
+                        <div>
+                            <strong>Secure & Lightweight</strong>
+                            <div style="color:var(--text-secondary); font-size:0.95rem">Simple API and privacy-aware design</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <div class="card">
+                    <h3 style="margin-bottom:0.5rem">Why choose CMC Bus Tracker?</h3>
+                    <p style="color:var(--text-secondary)">Built for campuses: quick to deploy, affordable, and tailored to student needs. Works offline-friendly via PWA and offers multiple deployment paths.</p>
+
+                    <div style="margin-top:1rem; display:flex; gap:8px; flex-direction:column;">
+                        <div style="display:flex; gap:8px; align-items:center;"><span class="badge">FREE</span><div><strong>Starter</strong><div style="color:var(--text-secondary); font-size:0.9rem">Ideal for small campuses</div></div></div>
+                        <div style="display:flex; gap:8px; align-items:center;"><span class="badge">PRO</span><div><strong>Pro</strong><div style="color:var(--text-secondary); font-size:0.9rem">SLA, analytics, priority support</div></div></div>
+                    </div>
+                </div>
+
+                <div style="margin-top:1rem;" class="card">
+                    <h4 class="card-title">Trusted by students and campuses</h4>
+                    <p style="color:var(--text-secondary)">Deployed as pilot programs in academic environments for better commute planning.</p>
+                    <div style="margin-top:1rem; display:flex; gap:8px;">
+                        <div style="background:#fff; padding:8px 12px; border-radius:8px; box-shadow:var(--shadow-sm);">University A</div>
+                        <div style="background:#fff; padding:8px 12px; border-radius:8px; box-shadow:var(--shadow-sm);">Campus B</div>
+                        <div style="background:#fff; padding:8px 12px; border-radius:8px; box-shadow:var(--shadow-sm);">Pilot C</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top:2rem">
+            <h2 class="card-title">Pricing Plans</h2>
+            <p class="card-description">Simple pricing for campuses of all sizes.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div style="position:relative">
+                        <div class="pricing-head">
+                            <div>
+                                <div style="font-weight:800">Starter</div>
+                                <div class="price-sub">Community • Up to 3 vehicles</div>
+                            </div>
+                            <div class="badge">Free</div>
+                        </div>
+                        <div class="pricing-body">
+                            <div class="price">$0</div>
+                            <ul class="pricing-features">
+                                <li>Live location & ETAs</li>
+                                <li>Up to 3 simulated vehicles</li>
+                                <li>Community support</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-cta">
+                            <a class="btn btn-primary" href="index.html">Start Free</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-card popular">
+                    <div style="position:relative">
+                        <div class="ribbon">Popular</div>
+                        <div class="pricing-head">
+                            <div>
+                                <div style="font-weight:800">Pro</div>
+                                <div class="price-sub">For growing campuses</div>
+                            </div>
+                            <div class="badge">$49 / mo</div>
+                        </div>
+                        <div class="pricing-body">
+                            <div class="price">$49</div>
+                            <div class="price-sub">Billed monthly • Up to 20 vehicles</div>
+                            <ul class="pricing-features">
+                                <li>Analytics dashboard</li>
+                                <li>SLA & uptime guarantees</li>
+                                <li>Priority email support</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-cta">
+                            <a class="btn btn-primary" href="pricing.html">Contact Sales</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-card">
+                    <div style="position:relative">
+                        <div class="pricing-head">
+                            <div>
+                                <div style="font-weight:800">Enterprise</div>
+                                <div class="price-sub">Custom • Unlimited vehicles</div>
+                            </div>
+                            <div class="badge">Custom</div>
+                        </div>
+                        <div class="pricing-body">
+                            <div class="price">Custom</div>
+                            <ul class="pricing-features">
+                                <li>On-premises deployment</li>
+                                <li>Dedicated support & SLA</li>
+                                <li>Custom integrations</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-cta">
+                            <a class="btn btn-primary" href="mailto:sales@cmc.ac.ma">Contact Sales</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer" style="margin-top:2rem;">
+            <p>© 2025 CMC Bus Tracker — Campus Transit as a Service</p>
+        </footer>
+    </div>
+</body>
+</html>
